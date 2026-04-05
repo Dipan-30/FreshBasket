@@ -1,0 +1,59 @@
+services:
+  # 1. AI System (Python FastAPI)
+  - type: web
+    name: freshbasket-ai-service
+    env: python
+    region: oregon # Set your preferred region
+    rootDir: ai_service
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0 # Or your required version
+      # Add necessary keys like GEMINI_API_KEY
+      # - key: GEMINI_API_KEY
+      #   sync: false 
+      - key: AI_SERVICE_ALLOWED_ORIGIN
+        value: "https://freshbasket-backend.onrender.com"
+
+  # 2. Node.js Backend Engine
+  - type: web
+    name: freshbasket-backend
+    env: node
+    region: oregon
+    rootDir: backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 5000
+      # You'll need to define these securely in the Render dashboard
+      # - key: MONGO_URL
+      #   sync: false
+      # - key: JWT_SECRET
+      #   sync: false
+      # - key: CLOUDINARY_URL
+      #   sync: false
+
+  # 3. Static React Frontend
+  - type: web
+    name: freshbasket-frontend
+    env: static
+    region: oregon
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "./frontend/dist"
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # Set your production URL for API here
+      - key: VITE_API_BASE_URL
+        value: "https://freshbasket-backend.onrender.com"
+
+    # Single Page App rewrite rule (important for React Router)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
