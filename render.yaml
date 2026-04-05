@@ -15,7 +15,7 @@ services:
       # - key: GEMINI_API_KEY
       #   sync: false 
       - key: AI_SERVICE_ALLOWED_ORIGIN
-        value: "https://freshbasket-backend.onrender.com"
+        value: "https://freshbasket-backend-jgck.onrender.com"
 
   # 2. Node.js Backend Engine
   - type: web
@@ -31,6 +31,8 @@ services:
         value: 20
       - key: PORT
         value: 5000
+      - key: AI_SERVICE_URL
+        value: "https://freshbasket-ai-service.onrender.com"
       # You'll need to define these securely in the Render dashboard
       # - key: MONGO_URL
       #   sync: false
@@ -51,7 +53,7 @@ services:
         value: 20
       # Set your production URL for API here
       - key: VITE_API_BASE_URL
-        value: "https://freshbasket-backend.onrender.com"
+        value: "https://freshbasket-backend-jgck.onrender.com"
 
     # Single Page App rewrite rule (important for React Router)
     routes:
