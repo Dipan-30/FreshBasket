@@ -41,7 +41,6 @@ services:
   - type: web
     name: freshbasket-frontend
     env: static
-    region: oregon
     rootDir: frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: "./frontend/dist"
