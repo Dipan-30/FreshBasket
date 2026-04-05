@@ -3,6 +3,7 @@ services:
   - type: web
     name: freshbasket-ai-service
     env: python
+    plan: free
     region: oregon # Set your preferred region
     rootDir: ai_service
     buildCommand: "pip install -r requirements.txt"
@@ -20,6 +21,7 @@ services:
   - type: web
     name: freshbasket-backend
     env: node
+    plan: free
     region: oregon
     rootDir: backend
     buildCommand: "npm install"
