@@ -31,6 +31,8 @@ services:
         value: 20
       - key: PORT
         value: 5000
+      - key: CLIENT_URL
+        value: "https://freshbasket-frontend.onrender.com"
       - key: AI_SERVICE_URL
         value: "https://freshbasket-ai-service.onrender.com"
       # You'll need to define these securely in the Render dashboard
@@ -52,7 +54,7 @@ services:
       - key: NODE_VERSION
         value: 20
       # Set your production URL for API here
-      - key: VITE_API_BASE_URL
+      - key: VITE_BACKEND_URL
         value: "https://freshbasket-backend-jgck.onrender.com"
 
     # Single Page App rewrite rule (important for React Router)
