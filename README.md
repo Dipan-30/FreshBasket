@@ -23,4 +23,5 @@ To run this project locally, you may need:
 2. **Backend**: Navigate to the `backend` directory, install dependencies, configure your environment variables in `.env`, and start the server.
 3. **AI Service**: Navigate to the `ai_service` directory, set up your python virtual environment, install requirements (`pip install -r requirements.txt`), and run the service.
 
-*Note: Please check the `README.md` files (if present) in the individual component directories for more specific setup and running instructions.*
+##DEPLOYED LINK : https://freshbasket-frontend.onrender.com/
+
